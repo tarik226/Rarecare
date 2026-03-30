@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    function isPalindrome(s) {
+        //A man, a plan, a canal: Panama
+        // s.toLowerCase();
+        console.log(s.toLowerCase());
+        //a man, a plan, a canal: panama
+        for(let i=0 ; i<s.length;i++){
+            if(/[^A-Za-z\s]/.test(s[i])){
+                s.splice(i,1);
+            }
+        };
+        console.log(s);
+        //amanaplanacanalpanama
+        for(let i=0 ; i<s.length;i++){
+            //a==a s[0]==s[20] 
+            //m==m s[1]==s[19] a==a s[2]==s[18]
+            if(s[i] != s[s.length-i]){
+                return false;
+            }else{  
+                return true;
+            }
+
+        }
+    }
+
+// alert(isPalindrome('racEc!ar'));
+
+const orders = [
+  {
+    id: 1,
+    items: [
+      { price: 100, quantity: 1 },
+      { price: 300, quantity: 2 },
+    ],
+  },
+  {
+    id: 2,
+    items: [
+      { price: 222, quantity: 1 },
+      { price: 400, quantity: 3 },
+    ],
+  },
+  {
+    id: 3,
+    items: [
+      { price: 100, quantity: 1 },
+      { price: 200, quantity: 2 },
+    ],
+  },
+];
+let totalItem=0;
+orders.forEach(order => {
+     order.totalPriceOrder = 0;
+    order.items.forEach(item =>{
+        item.totalItem=item.price*item.quantity;
+        order.totalPriceOrder += item.totalItem;
+    })
+});
+console.log(orders);
+
+
+// console.log(orders);
+</script>
+</body>
+
+</html>
